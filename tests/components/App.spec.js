@@ -1,13 +1,15 @@
 import { mount } from 'cypress-vue-unit-test'
 import App from '@/App'
-import router from '@/router'
+import { config as routerConfig } from '@/router'
 import VueRouter from 'vue-router'
+
+routerConfig.mode = 'abstract'
 
 describe('App', () => {
   it('renders the homepage', () => {
 
     mount(App, {
-      router,
+      router: new VueRouter(routerConfig),
       plugins: [VueRouter],
     })
 
