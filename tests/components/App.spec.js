@@ -7,9 +7,11 @@ routerConfig.mode = 'abstract'
 
 describe('App', () => {
   it('renders the homepage', () => {
+    const router = new VueRouter(routerConfig)
+    router.push('/')
 
     mount(App, {
-      router: new VueRouter(routerConfig),
+      router,
       plugins: [VueRouter],
     })
 
